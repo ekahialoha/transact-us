@@ -1,3 +1,9 @@
+.ant-btn-dashed {
+  width: 100%;
+  border-color: #63ADF2;
+}
 .login-form-button {
   width: 100%;
+  background: #63ADF2;
+  border-color: #63ADF2;
 }

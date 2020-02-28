@@ -1,13 +1,13 @@
 @import '~antd/dist/antd.css';
 
 body {
-  background: grey;
+  background: #82A0BC;
 }
 
-.App {
+.container {
   background: white;
-  border-radius: 2px;
-  margin: 1.2em;
+  border-radius: 0 0 4px 4px;
+  margin: 0 1.3em 1.2em 1.3em;
   padding: .9em;
   text-align: center;
 }

@@ -1,7 +1,7 @@
 import React/*, { useState }*/ from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import './style.css';
-
+import API from '../api';
 
 
 const LogInForm = props => {
@@ -11,18 +11,30 @@ const LogInForm = props => {
 
     props.form.validateFields((error, values) => {
       if (!error) {
-        console.log(values);
+        API.post('sessions',{
+          'session': {
+            email: values.email,
+            password: values.password
+          }
+        })
+          .then((session) => {
+            console.log(session);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
       }
     })
   };
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Item>
-        {getFieldDecorator('user', {
-          rules: [{ required: true, message: 'Pleae enter your username' }],
+        {getFieldDecorator('email', {
+          rules: [{ required: true, message: 'Pleae enter your email addresss' }],
         })(<Input
-            prefix={<Icon type="user" />}
-            placeholder="Username"
+            prefix={<Icon type="mail" />}
+            type="email"
+            placeholder="Email Address"
           />
         )}
       </Form.Item>
@@ -52,14 +64,12 @@ const LogInForm = props => {
         </Button>
 
         <Button
-          className="login-form-button"
           type="dashed"
         >
           Forgot Password
         </Button>
 
         <Button
-          className="login-form-button"
           type="dashed"
         >
           Register
