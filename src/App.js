@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import LogInForm from './components/LogInForm'
+import LoginForm from './components/LoginForm';
 
 const App = () => (
   <div className="App">
-    <LogInForm></LogInForm>
+    <LoginForm></LoginForm>
   </div>
 );
 
