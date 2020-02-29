@@ -1,8 +1,9 @@
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway&display=swap');
 
 body {
   background: #82A0BC;
-
+  font-family: 'Raleway'/*,*/ ;
 }
 
 #root {
@@ -16,4 +17,9 @@ body {
   margin: 0 1.3em 1.2em 1.3em;
   padding: .9em;
   text-align: center;
+}
+
+.logo {
+  color: #63ADF2;
+  font-size: 1.3em;
 }

@@ -1,11 +1,21 @@
 import React from 'react';
-import { PageHeader } from 'antd';
+import { Icon, PageHeader } from 'antd';
 import './style.css';
+
+const headerLogo = (title) => {
+  return (
+    <>
+    <Icon className="logo" type="bank" />
+    {'  '}
+    {title}
+    </>
+  );
+}
 
 const AppHeader = props => {
   return (
     <PageHeader
-      title={props.children}
+      title={headerLogo(props.children)}
       className="header"
       ghost={false}
     />
