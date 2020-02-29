@@ -2,6 +2,12 @@
 
 body {
   background: #82A0BC;
+
+}
+
+#root {
+  max-width: 750px;
+  margin: 0 auto;
 }
 
 .container {
