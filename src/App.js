@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 import { Icon } from 'antd';
 import LoginForm from './components/LoginForm';
-import AppHeader from './components/AppHeader'
+import AppHeader from './components/AppHeader';
+import AppFooter from './components/AppFooter';
+import { Route } from 'react-router-dom';
 
 const App = () => (
   <div className="App">
@@ -12,8 +14,10 @@ const App = () => (
       Transact Us
     </AppHeader>
     <div className="container">
-      <LoginForm></LoginForm>
+      <Route exact path="/" component={LoginForm} />
+      <Route path="/dashboard" component={() => <p>Dashboard</p>}/>
     </div>
+    <AppFooter />
   </div>
 );
 
