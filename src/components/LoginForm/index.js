@@ -18,6 +18,7 @@ const LogInForm = props => {
           }
         })
           .then((session) => {
+            props.form.resetFields();
             console.log(session);
           })
           .catch((error) => {
@@ -35,6 +36,7 @@ const LogInForm = props => {
             prefix={<Icon type="mail" />}
             type="email"
             placeholder="Email Address"
+            autoFocus="autoFocus"
           />
         )}
       </Form.Item>
@@ -65,12 +67,14 @@ const LogInForm = props => {
 
         <Button
           type="dashed"
+          href="#"
         >
           Forgot Password
         </Button>
 
         <Button
           type="dashed"
+          href="#"
         >
           Register
         </Button>
