@@ -1,11 +1,16 @@
 import React/*, { useState }*/ from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { reactLocalStorage } from 'reactjs-localstorage';
 import './style.css';
 import API from '../api';
 
-
 const LogInForm = props => {
   const getFieldDecorator = props.form.getFieldDecorator;
+
+  if (reactLocalStorage.get('sesssion_key')) {
+    props.history.push('/dashboard');
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -17,16 +22,17 @@ const LogInForm = props => {
             password: values.password
           }
         })
-          .then((session) => {
+          .then(result => result.data.data)
+          .then(session => {
             props.form.resetFields();
-            console.log(session);
+            reactLocalStorage.set('sesssion_key', session.token);
+            props.history.push('/dashboard');
           })
-          .catch((error) => {
-            console.log(error);
-          })
+          .catch(error => console.log(error));
       }
     })
   };
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Item>
@@ -37,16 +43,17 @@ const LogInForm = props => {
             type="email"
             placeholder="Email Address"
             autoFocus="autoFocus"
+            size="large"
           />
         )}
       </Form.Item>
       <Form.Item>
       {getFieldDecorator('password', {
         rules: [{ required: true, message: 'Please enter your password' }],
-      })(<Input
+      })(<Input.Password
           prefix={<Icon type="lock" />}
-          type="password"
           placeholder="Password"
+          size="large"
         />
       )}
       </Form.Item>
@@ -61,6 +68,7 @@ const LogInForm = props => {
           type="primary"
           htmlType="submit"
           className="login-form-button"
+          size="large"
         >
           Sign in
         </Button>
