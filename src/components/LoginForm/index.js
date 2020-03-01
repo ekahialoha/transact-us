@@ -1,15 +1,14 @@
 import React/*, { useState }*/ from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import { reactLocalStorage } from 'reactjs-localstorage';
 import './style.css';
 import API from '../api';
 
 const LogInForm = props => {
   const getFieldDecorator = props.form.getFieldDecorator;
 
-  if (reactLocalStorage.get('sesssion_key')) {
-    props.history.push('/dashboard');
-  }
+  // if (reactLocalStorage.get('sesssion_key')) {
+  //   props.history.push('/dashboard');
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,8 +24,8 @@ const LogInForm = props => {
           .then(result => result.data.data)
           .then(session => {
             props.form.resetFields();
-            reactLocalStorage.set('sesssion_key', session.token);
-            props.history.push('/dashboard');
+            localStorage.setItem('session_key', session.token);
+            props.history.push('/');
           })
           .catch(error => console.log(error));
       }

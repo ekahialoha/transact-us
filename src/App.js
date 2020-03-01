@@ -12,8 +12,8 @@ const App = () => (
       Transact Us
     </AppHeader>
     <div className="container">
-      <Route exact path="/" component={LoginForm} />
-      <Route path="/dashboard" component={Dashboard}/>
+      <Route path="/login" component={LoginForm} />
+      <Route exact path="/" component={Dashboard} />
     </div>
     <AppFooter />
   </div>

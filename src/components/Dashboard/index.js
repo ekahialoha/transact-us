@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { List, Typography } from 'antd';
 import { Link } from 'react-router-dom';
-import { reactLocalStorage } from 'reactjs-localstorage';
 import './style.scss';
 import API from '../api';
 
@@ -15,11 +14,18 @@ const Dashboard = props => {
         setRegistries(data);
       })
       .catch((error) => {
-        if (error.response.status === 401) {
-          reactLocalStorage.remove('sesssion_key');
-          props.history.push('/');
-        }
+        console.log(error.response);
+        // if (error.response.status === 401) {
+        //   // localStorage.removeItem('session_key');
+        //   props.history.push('/');
+        // }
       });
+      // const fetchRegistries = async () => {
+      //   const result = await API.get('registries');
+      //   setRegistries(result);
+      // };
+      //
+      // fetchRegistries();
   }, []);
   return (
     <>
