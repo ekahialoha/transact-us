@@ -17,8 +17,8 @@ const App = () => {
         </AppHeader>
         <div className="container">
           <Route path="/login" component={props => <LoginForm {...props} updateUser={setUser} />} />
-          <Route path="/logout" user={user} updateUser={setUser} component={HandleLogOut} />
-          <Route exact path="/" component={props => <Dashboard {...props} user={user}  updateUser={setUser} />} />
+          <Route path="/logout" component={props => <HandleLogOut {...props} updateUser={setUser} />} />
+          <Route exact path="/" component={props => <Dashboard {...props} user={user} updateUser={setUser} />} />
         </div>
         <AppFooter />
     </div>
