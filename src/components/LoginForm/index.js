@@ -1,7 +1,7 @@
 import React/*, { useState }*/ from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import './style.css';
-import API from '../api';
+import Api from '../Api';
 
 const LogInForm = props => {
   const getFieldDecorator = props.form.getFieldDecorator;
@@ -15,7 +15,7 @@ const LogInForm = props => {
 
     props.form.validateFields((error, values) => {
       if (!error) {
-        API.post('sessions',{
+        Api('sessions', 'POST', {
           'session': {
             email: values.email,
             password: values.password

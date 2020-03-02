@@ -2,30 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { List, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import './style.scss';
-import API from '../api';
+import AuthEnforcement from '../AuthEnforcement';
+import Api from '../Api';
 
 const Dashboard = props => {
   const [registries, setRegistries] = useState([]);
   useEffect(() => {
-    API.get('registries')
+    Api('registries')
       .then(result => result.data)
       .then(data => {
         console.log(data);
         setRegistries(data);
       })
-      .catch((error) => {
-        console.log(error.response);
-        // if (error.response.status === 401) {
-        //   // localStorage.removeItem('session_key');
-        //   props.history.push('/');
-        // }
-      });
-      // const fetchRegistries = async () => {
-      //   const result = await API.get('registries');
-      //   setRegistries(result);
-      // };
-      //
-      // fetchRegistries();
+      .catch((error) => console.log(error.response));
   }, []);
   return (
     <>
@@ -43,4 +32,4 @@ const Dashboard = props => {
   );
 };
 
-export default Dashboard;
+export default AuthEnforcement(Dashboard);
