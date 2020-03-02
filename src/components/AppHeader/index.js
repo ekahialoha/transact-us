@@ -18,6 +18,8 @@ const AppHeader = props => {
   if (props.user.id !== undefined) {
     subTitle = <>
       Welcome back, {props.user.name}!
+      {'  '}
+      [<Link to="/logout">Logout</Link>]
     </>;
   }
   return (
