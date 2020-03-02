@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { List, Typography } from 'antd';
+import { List } from 'antd';
 import { Link } from 'react-router-dom';
 import './style.scss';
 import AuthEnforcement from '../AuthEnforcement';
@@ -11,7 +11,6 @@ const Dashboard = props => {
     Api('registries')
       .then(result => result.data)
       .then(data => {
-        console.log(data);
         setRegistries(data);
       })
       .catch((error) => console.log(error.response));

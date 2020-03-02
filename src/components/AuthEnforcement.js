@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import jwtDecode from 'jwt-decode';
 
 const AuthEnforcement = (NextComponent) => {
   return class CheckAuthorization extends Component {
@@ -10,7 +11,11 @@ const AuthEnforcement = (NextComponent) => {
     componentDidMount = () => {
       const token = localStorage.getItem('session_key');
       if (token !== null) {
-        this.setState({ hasToken: true })
+        const decoded = jwtDecode(token);
+        this.setState({ hasToken: true });
+        if (this.props.user.id === undefined) {
+          this.props.updateUser(decoded.user);
+        }
       } else {
         this.props.history.push('/login');
       }

@@ -24,6 +24,7 @@ const LogInForm = props => {
           .then(result => result.data.data)
           .then(session => {
             props.form.resetFields();
+            props.updateUser(session.user)
             localStorage.setItem('session_key', session.token);
             props.history.push('/');
           })
