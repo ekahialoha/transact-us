@@ -6,9 +6,9 @@ import Api from '../Api';
 const LogInForm = props => {
   const getFieldDecorator = props.form.getFieldDecorator;
 
-  // if (reactLocalStorage.get('sesssion_key')) {
-  //   props.history.push('/dashboard');
-  // }
+  if (localStorage.getItem('session_key') !== null) {
+    props.history.push('/');
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
