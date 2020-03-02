@@ -5,13 +5,20 @@ import './style.scss';
 import AuthEnforcement from '../AuthEnforcement';
 import Api from '../Api';
 
+const makeRegistries = regs => {
+  return regs.map(registry => {
+    registry['url'] = `registries/${registry.id}`;
+    return registry;
+  });
+};
+
 const Dashboard = props => {
   const [registries, setRegistries] = useState([]);
   useEffect(() => {
     Api('registries')
       .then(result => result.data)
       .then(data => {
-        setRegistries(data);
+        setRegistries(makeRegistries(data));
       })
       .catch((error) => console.log(error.response));
   }, []);
@@ -23,7 +30,7 @@ const Dashboard = props => {
       dataSource={registries}
       renderItem={item => (
         <List.Item>
-          <Link to="/">{item.name}</Link>
+          <Link to={item.url}>{item.name}</Link>
         </List.Item>
       )}
     />

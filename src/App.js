@@ -5,10 +5,22 @@ import LoginForm from './components/LoginForm';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import Dashboard from './components/Dashboard';
-import HandleLogOut from './components/HandleLogOut';
+import HandleLogout from './components/HandleLogout';
+
+
 
 const App = () => {
   const [user, setUser] = useState({});
+
+  const ShowLoginForm = props => {
+    return <LoginForm {...props} updateUser={setUser} />;
+  };
+  const DoHandleLogout = props => {
+    return <HandleLogout {...props} updateUser={setUser} />;
+  };
+  const ShowDashboard = props => {
+    return <Dashboard {...props} user={user} updateUser={setUser} />;
+  };
 
   return (
     <div className="App">
@@ -16,9 +28,9 @@ const App = () => {
           Transact Us
         </AppHeader>
         <div className="container">
-          <Route path="/login" component={props => <LoginForm {...props} updateUser={setUser} />} />
-          <Route path="/logout" component={props => <HandleLogOut {...props} updateUser={setUser} />} />
-          <Route exact path="/" component={props => <Dashboard {...props} user={user} updateUser={setUser} />} />
+          <Route path="/login" component={ShowLoginForm} />
+          <Route path="/logout" component={DoHandleLogout} />
+          <Route exact path="/" component={ShowDashboard} />
         </div>
         <AppFooter />
     </div>
