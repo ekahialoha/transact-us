@@ -6,12 +6,16 @@ import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import Dashboard from './components/Dashboard';
 import HandleLogout from './components/HandleLogout';
+import ShowTransactions from './components/ShowTransactions';
 
 
 
 const App = () => {
   const [user, setUser] = useState({});
 
+  const DoShowTransactions = props => {
+    return <ShowTransactions {...props} user={user}  updateUser={setUser} />;
+  };
   const ShowLoginForm = props => {
     return <LoginForm {...props} updateUser={setUser} />;
   };
@@ -28,6 +32,7 @@ const App = () => {
           Transact Us
         </AppHeader>
         <div className="container">
+          <Route path="/registries/:id" component={DoShowTransactions} />
           <Route path="/login" component={ShowLoginForm} />
           <Route path="/logout" component={DoHandleLogout} />
           <Route exact path="/" component={ShowDashboard} />

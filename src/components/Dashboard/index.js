@@ -17,10 +17,8 @@ const Dashboard = props => {
   useEffect(() => {
     Api('registries')
       .then(result => result.data)
-      .then(data => {
-        setRegistries(makeRegistries(data));
-      })
-      .catch((error) => console.log(error.response));
+      .then(data => setRegistries(makeRegistries(data)))
+      .catch(error => console.log(error.response));
   }, []);
   return (
     <>
