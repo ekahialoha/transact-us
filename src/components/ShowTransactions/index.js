@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import AuthEnforcement from '../AuthEnforcement';
 import { List, Avatar } from 'antd';
 import { ImportOutlined, ExportOutlined } from '@ant-design/icons';
@@ -18,16 +19,15 @@ const makeTransactions = trans => {
 }
 
 const ShowTransactions = props => {
+  const params = useParams();
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-      if (props.match.params.id) {
-      Api(`transactions?registryId=${props.match.params.id}`)
+      Api(`transactions?registryId=${params.id}`)
           .then(result => result.data)
           .then(data => setTransactions(makeTransactions(data)))
           .catch(error => console.log(error.response));
-      }
-  }, []);
+  }, [params.id]);
 
   return (
     <>

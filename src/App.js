@@ -14,7 +14,7 @@ const App = () => {
   const [user, setUser] = useState({});
 
   const DoShowTransactions = props => {
-    return <ShowTransactions {...props} user={user}  updateUser={setUser} />;
+    return <ShowTransactions user={user}  updateUser={setUser} />;
   };
   const ShowLoginForm = props => {
     return <LoginForm {...props} updateUser={setUser} />;
