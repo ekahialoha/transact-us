@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import AuthEnforcement from '../AuthEnforcement';
 import { List, Avatar } from 'antd';
-import { ImportOutlined } from '@ant-design/icons';
-import './style.css';
+import { ImportOutlined, ExportOutlined } from '@ant-design/icons';
+import './style.scss';
 import Api from '../Api';
 
 const makeTransactions = trans => {
   return trans.map(transaction => {
-    transaction['type'] = <Avatar icon={<ImportOutlined />} />;
+     if (transaction.type === 2) {
+       transaction['avatar'] = <Avatar icon={<ImportOutlined />} />;
+     } else {
+       transaction['avatar'] = <Avatar icon={<ExportOutlined />} />;
+     }
     console.log(transaction);
     return transaction;
   });
@@ -29,12 +33,11 @@ const ShowTransactions = props => {
     <>
       <h3>Transactions</h3>
       <List
-        bordered
         dataSource={transactions}
         renderItem={item => (
           <List.Item>
             <List.Item.Meta
-              avatar={item.type}
+              avatar={item.avatar}
               title={item.description}
               description={item.value}
             />
