@@ -1,7 +1,8 @@
 header {
   background: #304D6D;
+  border-bottom: 4px solid #A7CCED;
   font-family: 'Fjalla One';
-  height: 120px;
+  height: 116px;
   letter-spacing: .1em;
   position: fixed;
   top: 0;
