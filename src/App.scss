@@ -9,13 +9,18 @@ body {
 }
 
 .container {
-  border-bottom: 1px solid black;
-  background: #fff;
-  // height: 1024px;
   margin: 120px auto 0 auto;
   max-width: 750px;
-  padding: .9em;
   text-align: center;
+}
+
+#main-body {
+  border-bottom: 4px solid #A7CCED;
+  background: #fff;
+  height: 1024px;
+  padding: 1.4em;
+  text-align: center;
+  width: 100%;
 }
 
 .logo {

@@ -32,12 +32,14 @@ const App = () => {
           Transact Us
         </AppHeader>
         <div className="container">
-          <Route path="/registries/:id" component={DoShowTransactions} />
-          <Route path="/login" component={ShowLoginForm} />
-          <Route path="/logout" component={DoHandleLogout} />
-          <Route exact path="/" component={ShowDashboard} />
+          <section id="main-body">
+            <Route path="/registries/:id" component={DoShowTransactions} />
+            <Route path="/login" component={ShowLoginForm} />
+            <Route path="/logout" component={DoHandleLogout} />
+            <Route exact path="/" component={ShowDashboard} />
+          </section>
+          <AppFooter />
         </div>
-        <AppFooter />
     </div>
   );
 };

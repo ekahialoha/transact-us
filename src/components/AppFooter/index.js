@@ -8,7 +8,8 @@ const AppFooter = props => {
 
   return (
     <footer>
-      &copy; {year} Christian Kelsom-Martin
+      links
+      <div className="copyright">&copy; {year} Christian Kelsom-Martin</div>
     </footer>
   );
 };

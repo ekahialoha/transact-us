@@ -1,3 +1,13 @@
 footer {
-  text-align: center;
+  background: #555;
+  color: #eaebec;
+  height: 75px;
+  text-align: left;
+  padding: 1.4em;
+  width: 100%;
+}
+
+.copyright {
+  font-size: .7em;
+  margin: 25px 0 0 0;
 }
