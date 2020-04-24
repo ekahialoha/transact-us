@@ -3,8 +3,6 @@ import './style.css';
 import Api from '../Api';
 
 const LogInForm = props => {
-  const getFieldDecorator = props.form.getFieldDecorator;
-
   if (localStorage.getItem('session_key') !== null) {
     props.history.push('/');
   }
@@ -33,61 +31,52 @@ const LogInForm = props => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Item>
-        {getFieldDecorator('email', {
-          rules: [{ required: true, message: 'Pleae enter your email addresss' }],
-        })(<Input
-            prefix={<Icon type="mail" />}
+    <form onSubmit={handleSubmit}>
+      <div>
+        <input
             type="email"
             placeholder="Email Address"
             autoFocus="autoFocus"
             size="large"
           />
-        )}
-      </Form.Item>
-      <Form.Item>
-      {getFieldDecorator('password', {
-        rules: [{ required: true, message: 'Please enter your password' }],
-      })(<Input.Password
-          prefix={<Icon type="lock" />}
+      </div>
+      <div>
+      <input
+          type="password"
           placeholder="Password"
           size="large"
         />
-      )}
-      </Form.Item>
-      <Form.Item>
-        {getFieldDecorator('remember', {
-          valuePropName: 'checked',
-          initialValue: false
-        })(<Checkbox>Remember me for 7 days</Checkbox>)}
-      </Form.Item>
-      <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
+      </div>
+      <div>
+        <input
+          type="checkbox"
+        />
+        Remember me for 7 days
+      </div>
+      <div>
+        <button
+          type="submit"
           className="login-form-button"
           size="large"
         >
           Sign in
-        </Button>
+        </button>
 
-        <Button
+        <button
           type="dashed"
           href="#"
         >
           Forgot Password
-        </Button>
+        </button>
 
-        <Button
+        <button
           type="dashed"
           href="#"
         >
           Register
-        </Button>
-      </Form.Item>
-    </Form>
+        </button>
+      </div>
+    </form>
   );
 };
-const form = Form.create()(LogInForm);
-export default form;
+export default LogInForm;

@@ -7,9 +7,9 @@ import Api from '../Api';
 const makeTransactions = trans => {
   return trans.map(transaction => {
      if (transaction.type === 2) {
-       transaction['avatar'] = <Avatar icon={<ImportOutlined />} />;
+       transaction['avatar'] = <></>;
      } else {
-       transaction['avatar'] = <Avatar icon={<ExportOutlined />} />;
+       transaction['avatar'] = <></>;
      }
     console.log(transaction);
     return transaction;
