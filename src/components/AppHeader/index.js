@@ -33,7 +33,7 @@ const AppHeader = props => {
   }
 
   return (
-    <>
+    <header>
     {/*<PageHeader
       title={headerLogo(props.children)}
       className="header"
@@ -42,7 +42,8 @@ const AppHeader = props => {
       onBack={showBackButtton}
     />*/}
     {props.children}
-    </>
+    {subTitle}
+    </header>
   );
 };
 
