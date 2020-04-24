@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { List } from 'antd';
 import { Link } from 'react-router-dom';
 import './style.scss';
 import AuthEnforcement from '../AuthEnforcement';
@@ -23,7 +22,7 @@ const Dashboard = props => {
   return (
     <>
     <h3>Registries</h3>
-    <List
+    {/*<List
       bordered
       dataSource={registries}
       renderItem={item => (
@@ -31,7 +30,7 @@ const Dashboard = props => {
           <Link to={item.url}>{item.name}</Link>
         </List.Item>
       )}
-    />
+    />*/}
     </>
   );
 };

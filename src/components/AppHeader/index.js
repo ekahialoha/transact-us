@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { Icon, PageHeader } from 'antd';
 import './style.css';
 
 const headerLogo = (title) => {
   return (
     <>
-    <Icon className="logo" type="bank" />
+    {/*<Icon className="logo" type="bank" />
     {'  '}
-    {title}
+    {title}*/}
     </>
   );
 }
@@ -34,13 +33,16 @@ const AppHeader = props => {
   }
 
   return (
-    <PageHeader
+    <>
+    {/*<PageHeader
       title={headerLogo(props.children)}
       className="header"
       ghost={false}
       subTitle={subTitle}
       onBack={showBackButtton}
-    />
+    />*/}
+    {props.children}
+    </>
   );
 };
 

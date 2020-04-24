@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AuthEnforcement from '../AuthEnforcement';
-import { List, Avatar } from 'antd';
-import { ImportOutlined, ExportOutlined } from '@ant-design/icons';
 import './style.scss';
 import Api from '../Api';
 
@@ -32,7 +30,7 @@ const ShowTransactions = props => {
   return (
     <>
       <h3>Transactions</h3>
-      <List
+      {/*<List
         dataSource={transactions}
         renderItem={item => (
           <List.Item>
@@ -43,7 +41,7 @@ const ShowTransactions = props => {
             />
           </List.Item>
         )}
-      />
+      />*/}
     </>
   );
 };
