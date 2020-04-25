@@ -31,6 +31,8 @@ const LogInForm = props => {
   };
 
   return (
+    <>
+    <h1>Login</h1>
     <form onSubmit={handleSubmit}>
       <div>
         <input
@@ -77,6 +79,7 @@ const LogInForm = props => {
         </button>
       </div>
     </form>
+    </>
   );
 };
 export default LogInForm;

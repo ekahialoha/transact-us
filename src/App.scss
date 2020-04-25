@@ -11,16 +11,18 @@ body {
 .container {
   margin: 120px auto 0 auto;
   max-width: 750px;
-  text-align: center;
 }
 
 #main-body {
   border-bottom: 4px solid #A7CCED;
-  background: #fff;
   height: 1024px;
-  padding: 1.4em;
-  text-align: center;
-  width: 100%;
+  background: #FFF;
+  padding: 1em 2.5em;
+  text-align: left;
+}
+
+#main-body h1 {
+  color: #304D6D;
 }
 
 .logo {
