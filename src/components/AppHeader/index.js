@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './style.css';
 
 const headerLogo = (title) => {
@@ -14,14 +14,10 @@ const headerLogo = (title) => {
 
 const AppHeader = props => {
   const history = useHistory();
-  const location = useLocation();
 
-  let showBackButtton;
-  if (location.pathname !== '/' && location.pathname !== '/login') {
-    showBackButtton = history.goBack;
-  } else {
-    showBackButtton = '';
-  }
+  const handleClick = () => {
+    history.push('/');
+  };
 
   let subTitle = null;
   if (props.user.id !== undefined) {
@@ -41,8 +37,10 @@ const AppHeader = props => {
       subTitle={subTitle}
       onBack={showBackButtton}
     />*/}
-    {props.children}
-    {subTitle}
+      <div id="logo-block" onClick={handleClick}>
+        {props.children}
+        {subTitle}
+      </div>
     </header>
   );
 };
