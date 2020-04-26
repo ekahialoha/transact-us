@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { message } from 'antd';
 
 const HandleLogOut = props => {
   useEffect(() => {
@@ -9,7 +8,7 @@ const HandleLogOut = props => {
     } else {
       props.updateUser({});
       localStorage.removeItem('session_key');
-      message.warning('Successfully logged out');
+      // message.warning('Successfully logged out');
     }
   });
 
