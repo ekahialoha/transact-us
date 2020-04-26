@@ -27,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div id="app">
         <AppHeader user={user}>
           Transact Us
         </AppHeader>

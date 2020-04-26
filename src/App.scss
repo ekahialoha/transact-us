@@ -1,28 +1,42 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway&display=swap');
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  height: 100%;
+}
+
 body {
-  background: #82A0BC;
   font-family: 'Raleway'/*,*/ ;
 }
 
 #root {
+  background: #82A0BC;
+  height: 100%;
 }
 
 .container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
   margin: 120px auto 0 auto;
-  max-width: 750px;
+  max-width: 900px;
 }
 
 #main-body {
   border-bottom: 4px solid #A7CCED;
-  height: 1024px;
   background: #FFF;
-  padding: 1em 2.5em;
+  // height: 1024px;
+  padding: 3em 2.5em;
   text-align: left;
 }
 
 #main-body h1 {
   color: #304D6D;
+  margin: 0 0 1.5em 0;
 }
 
 .logo {
