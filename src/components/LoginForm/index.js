@@ -1,4 +1,5 @@
 import React/*, { useState }*/ from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 import Api from '../Api';
 
@@ -33,50 +34,50 @@ const LogInForm = props => {
   return (
     <>
     <h1>Login</h1>
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className="em-box" onSubmit={handleSubmit}>
+      <div className="item-group">
+        <label htmlFor="email">Email Address:</label>
         <input
-            type="email"
-            placeholder="Email Address"
-            autoFocus="autoFocus"
-            size="large"
+          autoComplete="off"
+          type="email"
+          autoFocus="autoFocus"
+          size="large"
+          id="email"
           />
       </div>
-      <div>
-      <input
-          type="password"
-          placeholder="Password"
-          size="large"
-        />
-      </div>
-      <div>
+      <div className="item-group">
+        <label htmlFor="password">Password:</label>
         <input
-          type="checkbox"
+          type="password"
+          size="large"
+          id="password"
         />
-        Remember me for 7 days
       </div>
-      <div>
+      <div className="remember-me item-group">
+          <input
+            type="checkbox"
+            id="remember-me"
+          />
+          <label htmlFor="remember-me">
+            Remember me for 7 days?
+        </label>
+      </div>
+      <div className="item-group">
         <button
           type="submit"
-          className="login-form-button"
+          className="login-button"
           size="large"
         >
-          Sign in
+          Login
         </button>
-
-        <button
-          type="dashed"
-          href="#"
-        >
-          Forgot Password
-        </button>
-
-        <button
-          type="dashed"
-          href="#"
-        >
-          Register
-        </button>
+      </div>
+      <div className="item-group new-user">
+        <label>New user?</label>
+        <span><Link to="#">Register for account</Link></span>
+      </div>
+      <div className="item-group new-user">
+        <label>Problems signing in?</label>
+        <span><Link to="#">Account Recovery</Link></span>
       </div>
     </form>
     </>

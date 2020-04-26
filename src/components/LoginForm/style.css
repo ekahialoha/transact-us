@@ -1,9 +1,66 @@
-.ant-btn-dashed {
-  width: 100%;
-  border-color: #63ADF2;
+.em-box {
+  background: #F5F5F5;
+  border: 1px solid #DCDCDC;
+  border-radius: 6px;
+  padding: 1.5em 1em;
+  width: 65%;
 }
-.login-form-button {
+.em-box .item-group {
+  margin-bottom: 19px;
+  width: 80%;
+}
+
+.em-box .item-group label {
+  color: #202020;
+  display: block;
+  font-size: .8em;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.em-box .item-group input {
+  background: #F8F8F8;
+  border: 1px solid #DCDCDC;
+  border-radius: 6px;
+  padding: 4px;
   width: 100%;
+}
+
+.forgot-password {
+  /* font-size: .9em; */
+  margin-top: -10px;
+  text-align: left;
+}
+
+.login-button {
   background: #63ADF2;
   border-color: #63ADF2;
+  border-radius: 6px;
+  padding: 7px 20px;
+  font-size: .8em;
 }
+
+.remember-me {
+  margin-top: -10px;
+  width: max-content;
+  text-align: right;
+}
+
+.remember-me input {   
+  float: right;
+  width: 10px !important;
+ }
+ 
+ .remember-me label {    
+    display: block;
+    margin-left: 15px;
+ }
+
+ .new-user label {
+   display: inline-block !important;
+ }
+
+ .new-user span {
+  font-size: .8em;
+   margin-left: 15px;
+ }
