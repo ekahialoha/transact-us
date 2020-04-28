@@ -37,9 +37,11 @@ const AppHeader = props => {
       subTitle={subTitle}
       onBack={showBackButtton}
     />*/}
-      <div id="logo-block" onClick={handleClick}>
-        {props.children}
-        {subTitle}
+      <div className="container">
+        <div id="logo-block" onClick={handleClick}>
+          {props.children}
+          {subTitle}
+        </div>
       </div>
     </header>
   );

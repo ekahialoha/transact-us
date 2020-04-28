@@ -31,7 +31,7 @@ const App = () => {
         <AppHeader user={user}>
           Transact Us
         </AppHeader>
-        <div className="container">
+        <div className="container main-container">
           <section id="main-body">
             <Route path="/registries/:id" component={DoShowTransactions} />
             <Route path="/login" component={ShowLoginForm} />
