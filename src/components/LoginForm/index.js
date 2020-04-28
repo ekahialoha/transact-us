@@ -1,6 +1,6 @@
 import React/*, { useState }*/ from 'react';
 import { Link } from 'react-router-dom';
-import './style.css';
+import './style.scss';
 import Api from '../Api';
 
 const LogInForm = props => {

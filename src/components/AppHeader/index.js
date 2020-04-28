@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import './style.css';
+import './style.scss';
 
 const headerLogo = (title) => {
   return (

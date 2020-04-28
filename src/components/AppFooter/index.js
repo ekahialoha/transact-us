@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
 
 const AppFooter = props => {
   const currentYear = new Date().getFullYear();
