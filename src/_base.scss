@@ -1,0 +1,16 @@
+$primary-fonts: 'Raleway', Helvetica, sans-serif;
+$emphsis-fonts: 'Fjalla One', cursive;
+
+$main-bg-color: #82A0BC;
+$header-bg-color: #304D6D;
+$sub-color: #A7CCED;
+$off-white: #F5F5F5;
+$footer-bg-color: #555;
+
+body {
+    font-family: $primary-fonts;
+}
+
+h1 {
+    font-family: $emphsis-fonts;
+}

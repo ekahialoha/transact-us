@@ -1,6 +1,8 @@
+@import '../../base';
+
 footer {
-  background: #555;
-  color: #eaebec;
+  background: $footer-bg-color;
+  color: $off-white;
   height: 100%;
   text-align: left;
   padding: 1.4em;

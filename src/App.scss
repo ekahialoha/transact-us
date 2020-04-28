@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway&display=swap');
+@import '_base.scss';
 
 html, body {
   height: 100%;
@@ -9,12 +10,8 @@ html, body {
   height: 100%;
 }
 
-body {
-  font-family: 'Raleway'/*,*/ ;
-}
-
 #root {
-  background: #82A0BC;
+  background: $main-bg-color;
   height: 100%;
 }
 
@@ -31,19 +28,14 @@ body {
 }
 
 #main-body {
-  border-bottom: 4px solid #A7CCED;
-  background: #FFF;
+  border-bottom: 4px solid $sub-color;
+  background: $off-white;
   // height: 1024px;
   padding: 3em 2.5em;
   text-align: left;
 }
 
 #main-body h1 {
-  color: #304D6D;
+  color: $header-bg-color;
   margin: 0 0 1.5em 0;
-}
-
-.logo {
-  color: #63ADF2;
-  font-size: 1.3em;
 }
