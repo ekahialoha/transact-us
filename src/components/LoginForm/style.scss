@@ -33,11 +33,16 @@
 }
 
 .login-button {
-  background: #63ADF2;
-  border-color: #63ADF2;
+  background: #F7BE56;
+  border-color: #F6AE2D;
   border-radius: 6px;
   padding: 7px 20px;
   font-size: .8em;
+}
+
+.login-button:hover {
+  background: #F6AE2D;
+  border-color: #DD9C28;
 }
 
 .remember-me {
