@@ -1,29 +1,37 @@
+@import '../../base';
+
 .em-box {
   background: #f2f3f4;
   border: 1px solid #DCDCDC;
   border-radius: 6px;
   padding: 1.5em 1em;
   width: 65%;
-}
-.em-box .item-group {
-  margin-bottom: 19px;
-  width: 80%;
-}
 
-.em-box .item-group label {
-  color: #202020;
-  display: block;
-  font-size: .8em;
-  font-weight: bold;
-  margin-bottom: 6px;
-}
+  .item-group {
+    margin-bottom: 19px;
+    width: 80%;
 
-.em-box .item-group input {
-  background: #F8F8F8;
-  border: 1px solid #DCDCDC;
-  border-radius: 6px;
-  padding: 4px;
-  width: 100%;
+    label {
+      color: #202020;
+      display: block;
+      font-size: .8em;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input {
+      background: #F8F8F8;
+      border: 1px solid #DCDCDC;
+      border-radius: 6px;
+      outline: none;
+      padding: 7px;
+      width: 100%;
+    }
+
+    input:focus {
+      border-color: $h1-color;
+    }
+  }
 }
 
 .forgot-password {
@@ -49,23 +57,26 @@
   margin-top: -10px;
   width: max-content;
   text-align: right;
-}
 
-.remember-me input {   
-  float: right;
-  width: 10px !important;
- }
- 
- .remember-me label {    
+  input {   
+    float: right;
+    width: 10px !important;
+  }
+
+  label {    
     display: block;
     margin-left: 15px;
- }
+  }
+}
 
- .new-user label {
-   display: inline-block !important;
- }
 
- .new-user span {
-  font-size: .8em;
-   margin-left: 15px;
- }
+ .new-user {
+  label {
+    display: inline-block !important;
+  }
+
+  span {
+    font-size: .8em;
+    margin-left: 15px;
+  }
+}
