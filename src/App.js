@@ -38,8 +38,8 @@ const App = () => {
             <Route path="/logout" component={DoHandleLogout} />
             <Route exact path="/" component={ShowDashboard} />
           </section>
-          <AppFooter />
         </div>
+        <AppFooter />
     </div>
   );
 };

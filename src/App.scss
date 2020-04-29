@@ -2,17 +2,14 @@
 @import '_base.scss';
 
 html, body {
-  height: 100%;
   margin: 0;
 }
 
 #app {
-  height: 100%;
 }
 
 #root {
   background: $main-bg-color;
-  height: 100%;
 }
 
 .container {
@@ -21,14 +18,11 @@ html, body {
 }
 
 .main-container {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
   margin: 120px auto 0 auto;
+  padding-bottom: 55px;
 }
 
 #main-body {
-  border-bottom: 4px solid $sub-color;
   background: $off-white;
   // height: 1024px;
   padding: 3em 2.5em;
