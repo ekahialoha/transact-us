@@ -1,34 +1,44 @@
-import React/*, { useState }*/ from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
 import Api from '../Api';
 
 const LogInForm = props => {
+  const [state, setState] = useState({
+    email: '',
+    password: ''
+  });
+
   if (localStorage.getItem('session_key') !== null) {
     props.history.push('/');
   }
 
+  const handleChanges = (e) => {
+    setState({
+      ...state,
+      [e.target.id]: e.target.value
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    props.form.validateFields((error, values) => {
-      if (!error) {
-        Api('sessions', 'POST', {
-          'session': {
-            email: values.email,
-            password: values.password
-          }
-        })
-          .then(result => result.data.data)
-          .then(session => {
-            props.form.resetFields();
-            props.updateUser(session.user)
-            localStorage.setItem('session_key', session.token);
-            props.history.push('/');
-          })
-          .catch(error => console.log(error));
+    Api('sessions', 'POST', {
+      'session': {
+        email: state.email,
+        password: state.password
       }
     })
+      .then(result => result.data.data)
+      .then(session => {
+        setState({
+          email: '',
+          password: ''
+        });
+        props.updateUser(session.user);
+        localStorage.setItem('session_key', session.token);
+        props.history.push('/');
+      })
+      .catch(error => console.log(error));
   };
 
   return (
@@ -41,16 +51,18 @@ const LogInForm = props => {
           autoComplete="off"
           type="email"
           autoFocus="autoFocus"
-          size="large"
+          placeholder="email@example.co"
           id="email"
+          onChange={handleChanges}
           />
       </div>
       <div className="item-group">
         <label htmlFor="password">Password:</label>
         <input
           type="password"
-          size="large"
+          placeholder="password"
           id="password"
+          onChange={handleChanges}
         />
       </div>
       <div className="remember-me item-group">
