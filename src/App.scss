@@ -3,13 +3,17 @@
 
 html, body {
   margin: 0;
+  background: $main-bg-color;
+  height: calc(100% - 60px);
 }
 
 #app {
+  height: 100%;
 }
 
 #root {
   background: $main-bg-color;
+  height: 100%;
 }
 
 .container {
@@ -18,8 +22,10 @@ html, body {
 }
 
 .main-container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
   margin: 120px auto 0 auto;
-  padding-bottom: 55px;
 }
 
 #main-body {

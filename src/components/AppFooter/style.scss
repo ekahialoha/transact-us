@@ -4,7 +4,8 @@ footer {
   background: $footer-bg-color;
   border-top: 4px solid $sub-color;
   color: $off-white;
-  height: 100px;
+  flex-grow: 1;
+  min-height: 100px;
   text-align: left;
   padding: 1.4em;
 }
