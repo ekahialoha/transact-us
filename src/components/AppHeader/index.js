@@ -2,21 +2,23 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './style.scss';
 
-const headerLogo = (title) => {
-  return (
-    <>
-    {/*<Icon className="logo" type="bank" />
-    {'  '}
-    {title}*/}
-    </>
-  );
-}
-
 const AppHeader = props => {
   const history = useHistory();
 
-  const handleClick = () => {
+  const homeClick = () => {
     history.push('/');
+  };
+
+  const handleLogout = () => {
+    const token = localStorage.getItem('session_key');
+    console.log('eer');
+  
+    if (token !== null) {
+      props.updateUser({});
+      localStorage.removeItem('session_key');
+      // message.warning('Successfully logged out');
+      history.push('/');
+    }
   };
 
   let subTitle = null;
@@ -24,7 +26,7 @@ const AppHeader = props => {
     subTitle = <>
       Welcome back, {props.user.name}!
       {'  '}
-      [<Link to="/logout">Logout</Link>]
+      [<span onClick={handleLogout}>Logout</span>]
     </>;
   }
 
@@ -38,7 +40,7 @@ const AppHeader = props => {
       onBack={showBackButtton}
     />*/}
       <div className="container">
-        <div id="logo-block" onClick={handleClick}>
+        <div id="logo-block" onClick={homeClick}>
           {props.children}
           {subTitle}
         </div>
