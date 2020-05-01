@@ -4,7 +4,6 @@ header {
   background: $header-bg-color;
   border-bottom: 4px solid $sub-color;
   color: #FAEBD7;
-  font-family: 'Fjalla One';
   height: 116px;
   letter-spacing: .1em;
   position: fixed;
@@ -14,10 +13,10 @@ header {
 
 #logo-block {
   background: url('/favicon.png') no-repeat;
-  cursor: pointer;
+  font-family: 'Fjalla One';
   font-size: 1.5em;
   height: 3em;
-  margin: 1.4em 0;
+  margin-top: 1.4em;
   padding: .7em 0 0 3em;
   width: fit-content;
 }
@@ -25,3 +24,15 @@ header {
 #logo-block:hover {
   font-weight: bold;
 }
+
+#header-menu {
+  float: right;
+  margin-right: 1.4em;
+  padding-top: .7em;
+  width: fit-content;
+
+  .logout-link {
+    font-size: .7em;
+  }
+}
+

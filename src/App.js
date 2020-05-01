@@ -11,12 +11,13 @@ import ShowTransactions from './components/ShowTransactions';
 
 const App = () => {
   const [user, setUser] = useState({});
+  const [message, setMessage] = useState('');
 
   const DoShowTransactions = props => {
     return <ShowTransactions user={user}  updateUser={setUser} />;
   };
   const ShowLoginForm = props => {
-    return <LoginForm {...props} updateUser={setUser} />;
+    return <LoginForm {...props} updateUser={setUser} message={message} />;
   };
   const ShowDashboard = props => {
     return <Dashboard {...props} user={user} updateUser={setUser} />;
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     <div id="app">
-        <AppHeader user={user} updateUser={setUser}>
+        <AppHeader user={user} updateUser={setUser} setMessage={setMessage}>
           Transact Us
         </AppHeader>
         <div className="container main-container">

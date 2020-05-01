@@ -45,6 +45,7 @@ const LogInForm = props => {
     <>
     <h1>Login</h1>
     <form className="em-box" onSubmit={handleSubmit}>
+    {props.message}
       <div className="item-group">
         <label htmlFor="email">Email Address:</label>
         <input
