@@ -4,33 +4,29 @@ import './style.scss';
 import AuthEnforcement from '../AuthEnforcement';
 import Api from '../Api';
 
-const makeRegistries = regs => {
-  return regs.map(registry => {
-    registry['url'] = `registries/${registry.id}`;
-    return registry;
+const makeAccounts = regs => {
+  return regs.map(account => {
+    account['url'] = `accounts/${account.id}`;
+    return account;
   });
 };
 
 const Dashboard = props => {
-  const [registries, setRegistries] = useState([]);
+  const [accounts, setAccounts] = useState([]);
   useEffect(() => {
-    Api('registries')
+    Api('accounts')
       .then(result => result.data)
-      .then(data => setRegistries(makeRegistries(data)))
+      .then(data => setAccounts(makeAccounts(data)))
       .catch(error => console.log(error.response));
   }, []);
   return (
     <>
-    <h3>Registries</h3>
-    {/*<List
-      bordered
-      dataSource={registries}
-      renderItem={item => (
-        <List.Item>
-          <Link to={item.url}>{item.name}</Link>
-        </List.Item>
-      )}
-    />*/}
+    <h1>Accounts</h1>
+    {accounts.map(account => {
+      return (
+        <div><Link to={account.url}>{account.name}</Link></div>
+      );
+    })}
     </>
   );
 };
