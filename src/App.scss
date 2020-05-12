@@ -42,3 +42,62 @@ html, body {
 .link {
   cursor: pointer;
 }
+
+.em-box {
+  background: #f2f3f4;
+  border: 1px solid #DCDCDC;
+  border-radius: 6px;
+  padding: 1.5em 1em;
+  // width: 65%; Will move to breakpoint
+
+  .item-group {
+    margin-bottom: 19px;
+    width: 80%;
+
+    label {
+      color: #202020;
+      display: block;
+      font-size: .8em;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input {
+      background: #F8F8F8;
+      border: 1px solid #DCDCDC;
+      border-radius: 6px;
+      outline: none;
+      padding: 7px;
+      width: 100%;
+    }
+
+    input:focus {
+      border-color: $h1-color;
+    }
+  }
+}
+
+.flash-message {
+  // border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
+  padding: .5em 1em;
+  margin: 0 0 1.5em 0;
+}
+
+.flash-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.flash-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.flash-warning {
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+}

@@ -6,7 +6,7 @@ import Api from '../Api';
 
 const makeAccounts = regs => {
   return regs.map(account => {
-    account['url'] = `accounts/${account.id}`;
+    account['url'] = `registries/${account.id}`;
     return account;
   });
 };
@@ -22,11 +22,13 @@ const Dashboard = props => {
   return (
     <>
     <h1>Accounts</h1>
-    {accounts.map((account, key) => {
-      return (
-        <div key={key}><Link to={account.url}>{account.name}</Link></div>
-      );
-    })}
+    <main className="em-box">
+      {accounts.map((account, key) => {
+        return (
+          <div key={key}><Link to={account.url}>{account.name}</Link></div>
+        );
+      })}
+    </main>
     </>
   );
 };

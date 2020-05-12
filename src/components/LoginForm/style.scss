@@ -1,39 +1,5 @@
 @import '../../base';
 
-.em-box {
-  background: #f2f3f4;
-  border: 1px solid #DCDCDC;
-  border-radius: 6px;
-  padding: 1.5em 1em;
-  width: 65%;
-
-  .item-group {
-    margin-bottom: 19px;
-    width: 80%;
-
-    label {
-      color: #202020;
-      display: block;
-      font-size: .8em;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    input {
-      background: #F8F8F8;
-      border: 1px solid #DCDCDC;
-      border-radius: 6px;
-      outline: none;
-      padding: 7px;
-      width: 100%;
-    }
-
-    input:focus {
-      border-color: $h1-color;
-    }
-  }
-}
-
 .forgot-password {
   margin-top: -10px;
   text-align: left;
