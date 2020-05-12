@@ -9,7 +9,8 @@ const SignupForm = props => {
     lastName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    agree: ''
   });
 
   const handleChanges = e => {
@@ -83,6 +84,16 @@ const SignupForm = props => {
                 />
               </div>
             </div>
+            <div className="agree-terms item-group">
+            <input
+              type="checkbox"
+              id="agree"
+              onChange={handleChanges}
+            />
+            <label htmlFor="agree">
+              Agree to <Link to="#">terms &amp; conditions</Link>?
+          </label>
+        </div>
             <div className="item-group">
               <button
                 type="submit"
