@@ -89,7 +89,7 @@ const LogInForm = props => {
       </div>
       <div className="item-group new-user">
         <label>Problems signing in?</label>
-        <span><Link to="#">Account Recovery</Link></span>
+        <span><Link to="/account-recovery">Account Recovery</Link></span>
       </div>
     </form>
     </>

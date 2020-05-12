@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './style.scss';
 import Api from '../Api';
 
-const SignupForm = props => {
+const AccountRecovery = props => {
     return (
         <>
-             <h1>Signup</h1>
+             <h1>Account Recovery</h1>
              <form className="em-box">
                 <div className="item-group">
                     
@@ -15,4 +15,4 @@ const SignupForm = props => {
     );
 };
 
-export default SignupForm;
+export default AccountRecovery;

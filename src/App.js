@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.scss';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
+import AccountRecovery from './components/AccountRecovery';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import Dashboard from './components/Dashboard';
@@ -26,6 +27,9 @@ const App = () => {
   const ShowSignupForm = props => {
     return <SignupForm {...props} />;
   };
+  const ShowAccountRecovery = props => {
+    return <AccountRecovery {...props} />;
+  };
 
   return (
     <div id="app">
@@ -37,6 +41,7 @@ const App = () => {
             <Route path="/registries/:id" component={DoShowTransactions} />
             <Route path="/login" component={ShowLoginForm} />
             <Route path="/signup" component={ShowSignupForm} />
+            <Route path="/account-recovery" component={ShowAccountRecovery} />
             <Route exact path="/" component={ShowDashboard} />
           </section>
           <AppFooter />
