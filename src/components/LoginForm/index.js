@@ -28,7 +28,7 @@ const LogInForm = props => {
         password: state.password
       }
     })
-      .then(result => result.data.data)
+      .then(result => result.data.session)
       .then(session => {
         setState({
           email: '',
@@ -55,7 +55,7 @@ const LogInForm = props => {
           placeholder="email@example.co"
           id="email"
           onChange={handleChanges}
-          />
+        />
       </div>
       <div className="item-group">
         <label htmlFor="password">Password:</label>

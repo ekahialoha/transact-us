@@ -22,9 +22,9 @@ const Dashboard = props => {
   return (
     <>
     <h1>Accounts</h1>
-    {accounts.map(account => {
+    {accounts.map((account, key) => {
       return (
-        <div><Link to={account.url}>{account.name}</Link></div>
+        <div key={key}><Link to={account.url}>{account.name}</Link></div>
       );
     })}
     </>
