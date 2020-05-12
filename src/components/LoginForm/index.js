@@ -44,54 +44,56 @@ const LogInForm = props => {
   return (
     <>
     <h1>Login</h1>
-    <form className="em-box" onSubmit={handleSubmit}>
     {props.message}
-      <div className="item-group">
-        <label htmlFor="email">Email Address:</label>
-        <input
-          autoComplete="off"
-          type="email"
-          autoFocus="autoFocus"
-          placeholder="email@example.co"
-          id="email"
-          onChange={handleChanges}
-        />
-      </div>
-      <div className="item-group">
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          placeholder="password"
-          id="password"
-          onChange={handleChanges}
-        />
-      </div>
-      <div className="remember-me item-group">
+    <main>
+      <form className="em-box" onSubmit={handleSubmit}>
+        <div className="item-group">
+          <label htmlFor="email">Email Address:</label>
           <input
-            type="checkbox"
-            id="remember-me"
+            autoComplete="off"
+            type="email"
+            autoFocus="autoFocus"
+            placeholder="email@example.co"
+            id="email"
+            onChange={handleChanges}
           />
-          <label htmlFor="remember-me">
-            Remember me for 7 days?
-        </label>
-      </div>
-      <div className="item-group">
-        <button
-          type="submit"
-          className="login-button"
-        >
-          Login
-        </button>
-      </div>
-      <div className="item-group new-user">
-        <label>New user?</label>
-        <span><Link to="/signup">Register for account</Link></span>
-      </div>
-      <div className="item-group new-user">
-        <label>Problems signing in?</label>
-        <span><Link to="/account-recovery">Account Recovery</Link></span>
-      </div>
-    </form>
+        </div>
+        <div className="item-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            placeholder="password"
+            id="password"
+            onChange={handleChanges}
+          />
+        </div>
+        <div className="remember-me item-group">
+            <input
+              type="checkbox"
+              id="remember-me"
+            />
+            <label htmlFor="remember-me">
+              Remember me for 7 days?
+          </label>
+        </div>
+        <div className="item-group">
+          <button
+            type="submit"
+            className="login-button"
+          >
+            Login
+          </button>
+        </div>
+        <div className="item-group new-user">
+          <label>New user?</label>
+          <span><Link to="/signup">Register for account</Link></span>
+        </div>
+        <div className="item-group new-user">
+          <label>Problems signing in?</label>
+          <span><Link to="/account-recovery">Account Recovery</Link></span>
+        </div>
+      </form>
+    </main>
     </>
   );
 };

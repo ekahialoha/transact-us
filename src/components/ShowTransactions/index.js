@@ -29,7 +29,10 @@ const ShowTransactions = props => {
 
   return (
     <>
-      <h3>Transactions</h3>
+      <h1>Transactions</h1>
+      <main>
+        
+      </main>
       {/*<List
         dataSource={transactions}
         renderItem={item => (
