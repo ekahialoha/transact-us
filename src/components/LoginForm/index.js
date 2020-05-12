@@ -79,14 +79,13 @@ const LogInForm = props => {
         <button
           type="submit"
           className="login-button"
-          size="large"
         >
           Login
         </button>
       </div>
       <div className="item-group new-user">
         <label>New user?</label>
-        <span><Link to="#">Register for account</Link></span>
+        <span><Link to="/signup">Register for account</Link></span>
       </div>
       <div className="item-group new-user">
         <label>Problems signing in?</label>
