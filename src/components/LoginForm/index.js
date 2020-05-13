@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
 import Api from '../Api';
+import FormValidation from '../FormValidation';
+import rules from './validations';
 
 const LogInForm = props => {
+  const validationRules = new FormValidation(rules);
   const [state, setState] = useState({
     email: '',
-    password: ''
+    password: '',
+    submitted: false,
+    validation: validationRules.defaultValidations()
   });
 
   if (localStorage.getItem('session_key') !== null) {
@@ -22,32 +27,43 @@ const LogInForm = props => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Api('sessions', 'POST', {
-      'session': {
-        email: state.email,
-        password: state.password
-      }
-    })
-      .then(result => result.data.session)
-      .then(session => {
-        setState({
-          email: '',
-          password: ''
-        });
-        props.updateUser(session.user);
-        localStorage.setItem('session_key', session.token);
-        props.history.push('/');
+
+    const validation = validationRules.runValidations(state);
+    setState({
+      ...state,
+      submitted: true
+    });
+
+    if (validation.valid) {
+      Api('sessions', 'POST', {
+        'session': {
+          email: state.email,
+          password: state.password
+        }
       })
-      .catch(error => console.log(error));
+        .then(result => result.data.session)
+        .then(session => {
+          setState({
+            email: '',
+            password: ''
+          });
+          props.updateUser(session.user);
+          localStorage.setItem('session_key', session.token);
+          props.history.push('/');
+        })
+        .catch(error => console.log(error));
+    }
   };
+
+  const validation = state.submitted ? validationRules.runValidations(state) : state.validation;
 
   return (
     <>
     <h1>Login</h1>
     {props.message}
     <main>
-      <form className="em-box" onSubmit={handleSubmit}>
-        <div className="item-group">
+      <form noValidate className="em-box" onSubmit={handleSubmit}>
+        <div className={!validation.email.valid ? 'item-group has_error' : 'item-group' }>
           <label htmlFor="email">Email Address:</label>
           <input
             autoComplete="off"
@@ -57,8 +73,9 @@ const LogInForm = props => {
             id="email"
             onChange={handleChanges}
           />
+          <span className="help-block">{validation.email.error}</span>
         </div>
-        <div className="item-group">
+        <div className={!validation.password.valid ? 'item-group has_error' : 'item-group' }>
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -66,6 +83,7 @@ const LogInForm = props => {
             id="password"
             onChange={handleChanges}
           />
+          <span className="help-block">{validation.password.error}</span>
         </div>
         <div className="remember-me item-group">
             <input

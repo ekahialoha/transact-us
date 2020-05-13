@@ -89,6 +89,27 @@ html, body {
   .flex-columns {
     display: flex;
   }
+
+  .has_error {
+    label {
+      color: #DD4A68;
+    }
+
+    input {
+      border-color: #DD4A68;
+    }
+
+    input:focus {
+      border-color: #DD4A68;
+    }
+
+    .help-block {
+      color: #DD4A68;
+      display: block;
+      font-size: .7em;
+      padding: 5px 0 0 5px;
+    }
+  }
 }
 
 .flash-message {
