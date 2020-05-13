@@ -1,94 +1,118 @@
-import React/*, { useState }*/ from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import './style.css';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './style.scss';
 import Api from '../Api';
+import FormValidation from '../FormValidation';
+import rules from './validations';
 
 const LogInForm = props => {
-  const getFieldDecorator = props.form.getFieldDecorator;
+  const validationRules = new FormValidation(rules);
+  const [state, setState] = useState({
+    email: '',
+    password: '',
+    submitted: false,
+    validation: validationRules.defaultValidations()
+  });
 
   if (localStorage.getItem('session_key') !== null) {
     props.history.push('/');
   }
 
+  const handleChanges = (e) => {
+    setState({
+      ...state,
+      [e.target.id]: e.target.value
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    props.form.validateFields((error, values) => {
-      if (!error) {
-        Api('sessions', 'POST', {
-          'session': {
-            email: values.email,
-            password: values.password
-          }
+    const validation = validationRules.runValidations(state);
+    setState({
+      ...state,
+      submitted: true
+    });
+
+    if (validation.valid) {
+      Api('sessions', 'POST', {
+        'session': {
+          email: state.email,
+          password: state.password
+        }
+      })
+        .then(result => result.data.session)
+        .then(session => {
+          setState({
+            email: '',
+            password: ''
+          });
+          props.updateUser(session.user);
+          localStorage.setItem('session_key', session.token);
+          props.history.push('/');
         })
-          .then(result => result.data.data)
-          .then(session => {
-            props.form.resetFields();
-            props.updateUser(session.user)
-            localStorage.setItem('session_key', session.token);
-            props.history.push('/');
-          })
-          .catch(error => console.log(error));
-      }
-    })
+        .catch(error => console.log(error));
+    }
   };
 
+  const validation = state.submitted ? validationRules.runValidations(state) : state.validation;
+
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Item>
-        {getFieldDecorator('email', {
-          rules: [{ required: true, message: 'Pleae enter your email addresss' }],
-        })(<Input
-            prefix={<Icon type="mail" />}
+    <>
+    <h1>Login</h1>
+    {props.message}
+    <main>
+      <form noValidate className="em-box" onSubmit={handleSubmit}>
+        <div className={!validation.email.valid ? 'item-group has_error' : 'item-group' }>
+          <label htmlFor="email">Email Address:</label>
+          <input
+            autoComplete="off"
             type="email"
-            placeholder="Email Address"
             autoFocus="autoFocus"
-            size="large"
+            placeholder="email@example.co"
+            id="email"
+            onChange={handleChanges}
           />
-        )}
-      </Form.Item>
-      <Form.Item>
-      {getFieldDecorator('password', {
-        rules: [{ required: true, message: 'Please enter your password' }],
-      })(<Input.Password
-          prefix={<Icon type="lock" />}
-          placeholder="Password"
-          size="large"
-        />
-      )}
-      </Form.Item>
-      <Form.Item>
-        {getFieldDecorator('remember', {
-          valuePropName: 'checked',
-          initialValue: false
-        })(<Checkbox>Remember me for 7 days</Checkbox>)}
-      </Form.Item>
-      <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          className="login-form-button"
-          size="large"
-        >
-          Sign in
-        </Button>
-
-        <Button
-          type="dashed"
-          href="#"
-        >
-          Forgot Password
-        </Button>
-
-        <Button
-          type="dashed"
-          href="#"
-        >
-          Register
-        </Button>
-      </Form.Item>
-    </Form>
+          <span className="help-block">{validation.email.error}</span>
+        </div>
+        <div className={!validation.password.valid ? 'item-group has_error' : 'item-group' }>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            placeholder="password"
+            id="password"
+            onChange={handleChanges}
+          />
+          <span className="help-block">{validation.password.error}</span>
+        </div>
+        <div className="remember-me item-group">
+            <input
+              type="checkbox"
+              id="remember-me"
+            />
+            <label htmlFor="remember-me">
+              Remember me for 7 days?
+          </label>
+        </div>
+        <div className="item-group">
+          <button
+            type="submit"
+            className="login-button"
+          >
+            Login
+          </button>
+        </div>
+        <div className="item-group new-user">
+          <label>New user?</label>
+          <span><Link to="/signup">Register for account</Link></span>
+        </div>
+        <div className="item-group new-user">
+          <label>Problems signing in?</label>
+          <span><Link to="/account-recovery">Account Recovery</Link></span>
+        </div>
+      </form>
+    </main>
+    </>
   );
 };
-const form = Form.create()(LogInForm);
-export default form;
+export default LogInForm;

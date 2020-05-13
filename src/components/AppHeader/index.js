@@ -1,46 +1,46 @@
 import React from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
-import { Icon, PageHeader } from 'antd';
-import './style.css';
-
-const headerLogo = (title) => {
-  return (
-    <>
-    <Icon className="logo" type="bank" />
-    {'  '}
-    {title}
-    </>
-  );
-}
+import { useHistory } from 'react-router-dom';
+import './style.scss';
 
 const AppHeader = props => {
   const history = useHistory();
-  const location = useLocation();
 
-  let showBackButtton;
-  if (location.pathname !== '/' && location.pathname !== '/login') {
-    showBackButtton = history.goBack;
-  } else {
-    showBackButtton = '';
-  }
+  const homeClick = () => {
+    history.push('/');
+  };
 
-  let subTitle = null;
-  if (props.user.id !== undefined) {
-    subTitle = <>
-      Welcome back, {props.user.name}!
-      {'  '}
-      [<Link to="/logout">Logout</Link>]
-    </>;
-  }
+  const handleLogout = () => {
+    const token = localStorage.getItem('session_key');
+  
+    if (token !== null) {
+      props.updateUser({});
+      localStorage.removeItem('session_key');
+      props.setMessage('Successfully logged out');
+      history.push('/');
+    }
+  };
+
+  let MenuSubHeader = () => {
+    if (props.user.id !== undefined) {
+      return <div id="header-menu">
+          Welcome back, {props.user.name}!
+          {'  '}
+          <span onClick={handleLogout} className="logout-link link">[Logout]</span>
+        </div>;
+    } else {
+      return null;
+    }
+  };
 
   return (
-    <PageHeader
-      title={headerLogo(props.children)}
-      className="header"
-      ghost={false}
-      subTitle={subTitle}
-      onBack={showBackButtton}
-    />
+    <header>
+      <div className="container">
+        <MenuSubHeader />
+        <div id="logo-block" className="link" onClick={homeClick}>
+          {props.children}
+        </div>
+      </div>
+    </header>
   );
 };
 

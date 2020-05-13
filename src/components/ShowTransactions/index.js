@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AuthEnforcement from '../AuthEnforcement';
-import { List, Avatar } from 'antd';
-import { ImportOutlined, ExportOutlined } from '@ant-design/icons';
 import './style.scss';
 import Api from '../Api';
 
 const makeTransactions = trans => {
   return trans.map(transaction => {
      if (transaction.type === 2) {
-       transaction['avatar'] = <Avatar icon={<ImportOutlined />} />;
+       transaction['avatar'] = <></>;
      } else {
-       transaction['avatar'] = <Avatar icon={<ExportOutlined />} />;
+       transaction['avatar'] = <></>;
      }
     console.log(transaction);
     return transaction;
@@ -31,8 +29,11 @@ const ShowTransactions = props => {
 
   return (
     <>
-      <h3>Transactions</h3>
-      <List
+      <h1>Transactions</h1>
+      <main>
+        
+      </main>
+      {/*<List
         dataSource={transactions}
         renderItem={item => (
           <List.Item>
@@ -43,7 +44,7 @@ const ShowTransactions = props => {
             />
           </List.Item>
         )}
-      />
+      />*/}
     </>
   );
 };

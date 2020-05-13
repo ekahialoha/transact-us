@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
 
 const AppFooter = props => {
   const currentYear = new Date().getFullYear();
@@ -8,7 +8,10 @@ const AppFooter = props => {
 
   return (
     <footer>
-      &copy; {year} Christian Kelsom-Martin
+      <div className="container">
+        links
+        <div className="copyright">&copy; {year} Christian Kelsom-Martin</div>
+      </div>
     </footer>
   );
 };

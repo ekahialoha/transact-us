@@ -1,0 +1,46 @@
+@import '../../base';
+
+.forgot-password {
+  margin-top: -10px;
+  text-align: left;
+}
+
+.login-button {
+  background: #F7BE56;
+  border-color: #F6AE2D;
+  border-radius: 6px;
+  padding: 7px 20px;
+  font-size: .8em;
+}
+
+.login-button:hover {
+  background: #F6AE2D;
+  border-color: #DD9C28;
+}
+
+.remember-me {
+  margin-top: -10px;
+  width: max-content;
+  text-align: right;
+
+  input {   
+    float: right;
+    width: 10px !important;
+  }
+
+  label {    
+    display: block;
+    margin-left: 15px;
+  }
+}
+
+.new-user {
+  label {
+    display: inline-block !important;
+  }
+
+  span {
+    font-size: .8em;
+    margin-left: 15px;
+  }
+}
