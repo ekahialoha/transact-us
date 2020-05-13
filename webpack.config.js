@@ -13,7 +13,7 @@ module.exports = () => {
 
   return {
     plugins: [
-      new webpack.DefinePlugin(envKeys)
-    ]
+      new webpack.DefinePlugin(envKeys),
+    ],
   };
 };

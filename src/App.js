@@ -10,42 +10,31 @@ import Dashboard from './components/Dashboard';
 import ShowTransactions from './components/ShowTransactions';
 
 
-
 const App = () => {
   const [user, setUser] = useState({});
   const [message, setMessage] = useState('');
 
-  const DoShowTransactions = props => {
-    return <ShowTransactions {...props} user={user}  updateUser={setUser} />;
-  };
-  const ShowLoginForm = props => {
-    return <LoginForm {...props} updateUser={setUser} message={message} />;
-  };
-  const ShowDashboard = props => {
-    return <Dashboard {...props} user={user} updateUser={setUser} />;
-  };
-  const ShowSignupForm = props => {
-    return <SignupForm {...props} />;
-  };
-  const ShowAccountRecovery = props => {
-    return <AccountRecovery {...props} />;
-  };
+  const DoShowTransactions = (props) => <ShowTransactions {...props} user={user} updateUser={setUser} />;
+  const ShowLoginForm = (props) => <LoginForm {...props} updateUser={setUser} message={message} />;
+  const ShowDashboard = (props) => <Dashboard {...props} user={user} updateUser={setUser} />;
+  const ShowSignupForm = (props) => <SignupForm {...props} />;
+  const ShowAccountRecovery = (props) => <AccountRecovery {...props} />;
 
   return (
     <div id="app">
-        <AppHeader user={user} updateUser={setUser} setMessage={setMessage}>
-          Transact Us
-        </AppHeader>
-        <div className="container main-container">
-          <section id="main-body">
-            <Route path="/registries/:id" component={DoShowTransactions} />
-            <Route path="/login" component={ShowLoginForm} />
-            <Route path="/signup" component={ShowSignupForm} />
-            <Route path="/account-recovery" component={ShowAccountRecovery} />
-            <Route exact path="/" component={ShowDashboard} />
-          </section>
-          <AppFooter />
-        </div>
+      <AppHeader user={user} updateUser={setUser} setMessage={setMessage}>
+        Transact Us
+      </AppHeader>
+      <div className="container main-container">
+        <section id="main-body">
+          <Route path="/registries/:id" component={DoShowTransactions} />
+          <Route path="/login" component={ShowLoginForm} />
+          <Route path="/signup" component={ShowSignupForm} />
+          <Route path="/account-recovery" component={ShowAccountRecovery} />
+          <Route exact path="/" component={ShowDashboard} />
+        </section>
+        <AppFooter />
+      </div>
     </div>
   );
 };
