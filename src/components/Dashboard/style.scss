@@ -1,14 +1,42 @@
-.ant-list-item {
+@import '../../_base.scss';
+
+.account-list {
+  border: 1px solid #DCDCDC;
+  border-radius: 6px;
+  margin: 0;
   padding: 0;
+
+  a {
+    // color: ;
+  }
+
+  a:hover, a:active {
+    // color: ;
+    text-decoration: none;
+  }
+
+  legend {
+    font-family: $emphsis-fonts;
+    font-size: .7em;
+    margin: 0 0 5px 4px;
+  }
+
+  section {
+    border-left: 3px solid gray;
+    margin: 3px 12px;
+    padding: 5px;
+  }
+
+  section + section {
+    margin-top: 4px;
+  }
+
+  section:last-of-type {
+    margin-bottom: 10px;
+  }
+
 }
 
-.ant-list-bordered .ant-list-item  {
-  padding: 0;
-}
-
-.ant-list-item a {
-  display: block;
-  height: 100%;
-  padding: 12px 24px;
-  width: 100%;
+.account-list + .account-list {
+  margin-top: .5em;
 }
