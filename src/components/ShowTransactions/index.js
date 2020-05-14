@@ -4,15 +4,7 @@ import AuthEnforcement from '../AuthEnforcement';
 import './style.scss';
 import Api from '../Api';
 
-const makeTransactions = (trans) => trans.map((transaction) => {
-  if (transaction.type === 2) {
-    transaction.avatar = <></>;
-  } else {
-    transaction.avatar = <></>;
-  }
-  console.log(transaction);
-  return transaction;
-});
+const makeTransactions = (trans) => trans.map((transaction) => ({ ...transaction }));
 
 const ShowTransactions = (props) => {
   const params = useParams();
@@ -28,19 +20,24 @@ const ShowTransactions = (props) => {
   return (
     <>
       <h1>Transactions</h1>
-      <main />
-      {/* <List
-        dataSource={transactions}
-        renderItem={item => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={item.avatar}
-              title={item.description}
-              description={item.value}
-            />
-          </List.Item>
-        )}
-      /> */}
+      <main className="em-box transactions-list">
+        <section>
+          <div className="trans-date">MAY 14</div>
+          <div className="trans-amt" data-negative="true">($20)</div>
+          <div className="trans-balance">$4,500.00</div>
+          <div className="trans-desc">ATM WIDTHDRAWL @ 111 E Main St Branch ATM</div>
+          <div className="heading-balance">Balance:</div>
+          <div className="heading-desc">Desccription:</div>
+        </section>
+        <section>
+          <div className="trans-date">MAY 13</div>
+          <div className="trans-amt" data-positive="true">$520</div>
+          <div className="trans-balance">$4,520.00</div>
+          <div className="trans-desc">DRIECT DEPOSIT COMPANY NAME HERE</div>
+          <div className="heading-balance">Balance:</div>
+          <div className="heading-desc">Desccription:</div>
+        </section>
+      </main>
     </>
   );
 };
