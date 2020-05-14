@@ -17,7 +17,7 @@ const Dashboard = (props) => {
   return (
     <>
       <h1>Accounts</h1>
-      <main className="em-box">
+      <main>
         {/* {accounts.map((account) => (
           <div key={account.id}><Link to={account.url}>{account.name}</Link></div>
         ))} */}

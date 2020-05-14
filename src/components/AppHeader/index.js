@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom';
 import './style.scss';
 
 const AppHeader = (props) => {
+  const {
+    user, children, updateUser, setMessage,
+  } = props;
   const history = useHistory();
 
   const homeClick = () => {
@@ -13,20 +16,20 @@ const AppHeader = (props) => {
     const token = localStorage.getItem('session_key');
 
     if (token !== null) {
-      props.updateUser({});
+      updateUser({});
       localStorage.removeItem('session_key');
-      props.setMessage('Successfully logged out');
+      setMessage('Successfully logged out');
       history.push('/');
     }
   };
 
   const MenuSubHeader = () => {
-    if (props.user.id !== undefined) {
+    if (user.id !== undefined) {
       return (
         <div id="header-menu">
           Welcome back,
           {' '}
-          {props.user.name}
+          {user.name}
           !
           {'  '}
           <span onClick={handleLogout} className="logout-link link">[Logout]</span>
@@ -41,7 +44,7 @@ const AppHeader = (props) => {
       <div className="container">
         <MenuSubHeader />
         <div id="logo-block" className="link" onClick={homeClick}>
-          {props.children}
+          {children}
         </div>
       </div>
     </header>
