@@ -1,4 +1,6 @@
 .transactions-list {
+  padding: 0;
+
   section {
     display: grid;
     font-size: .9em;
@@ -7,6 +9,7 @@
                           "heading-desc trans-desc";
     grid-template-rows: 1.5em 1.5em 1fr;
     grid-template-columns: 5.2em auto;
+    padding: 1em;
 
     .trans-date {
       grid-area: trans-date;
@@ -45,5 +48,9 @@
       grid-area: heading-desc;
     }
 
+  }
+
+  section:nth-of-type(even) {
+    background: #DCDCDC;
   }
 }

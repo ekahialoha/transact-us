@@ -37,6 +37,10 @@ const ShowTransactions = (props) => {
           <div className="heading-balance">Balance:</div>
           <div className="heading-desc">Desccription:</div>
         </section>
+        <section>
+          <div className="trans-date">STARTING BALANCE</div>
+          <div className="trans-amt">$4,000.00</div>
+        </section>
       </main>
     </>
   );
