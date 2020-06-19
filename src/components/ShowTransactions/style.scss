@@ -11,13 +11,16 @@
     grid-template-columns: 5.2em auto;
     padding: 1em;
 
+    .trans-amt, .trans-balance, .trans-desc {
+      text-align: right;
+    }
+
     .trans-date {
       grid-area: trans-date;
     }
     
     .trans-amt {
       grid-area: trans-amt;
-      text-align: right;
     }
 
     [data-negative] {

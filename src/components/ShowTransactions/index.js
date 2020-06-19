@@ -20,6 +20,13 @@ const ShowTransactions = (props) => {
   return (
     <>
       <h1>Transactions</h1>
+      <h4 className="sub-headding">
+        Transactions for
+        {' '}
+        <span>XYZ</span>
+        {' '}
+        Registry
+      </h4>
       <main className="em-box transactions-list">
         <section>
           <div className="trans-date">MAY 14</div>
@@ -38,7 +45,7 @@ const ShowTransactions = (props) => {
           <div className="heading-desc">Desccription:</div>
         </section>
         <section>
-          <div className="trans-date">STARTING BALANCE</div>
+          <div className="trans-desc">STARTING BALANCE</div>
           <div className="trans-amt">$4,000.00</div>
         </section>
       </main>

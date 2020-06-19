@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Raleway:ital,wght@0,400;0,700;1,700&display=swap');
 @import '_base.scss';
 
 html, body {
@@ -40,8 +40,13 @@ html, body {
 
   h4.sub-headding {
     font-size: .9em;
+    font-weight: normal;
     margin: 0;
     padding: 6px 8px;
+
+    span {
+      font-weight: bold;
+    }
   }
 
   main {

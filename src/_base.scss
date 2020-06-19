@@ -8,8 +8,13 @@ $off-white: #F5F5F5;
 $footer-bg-color: #2F4858;
 $h1-color: #F6AE2D;
 
+$phone-width: 384px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
 body {
     font-family: $primary-fonts;
+    font-weight: normal;
 }
 
 h1 {
