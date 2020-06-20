@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Route, useHistory, useParams,
+  Route, useHistory, useLocation, useParams,
 } from 'react-router-dom';
 
 import AuthEnforcement from '../AuthEnforcement';
@@ -27,10 +27,22 @@ const menu = [{
 
 const ShowChecking = () => {
   const history = useHistory();
+  const location = useLocation();
   const { id } = useParams();
 
+  const route = location.pathname.split('/').pop();
+
   const menuItem = (item, key) => (
-    <div key={key} className="link" onClick={() => history.push(`/checking/${id}/${item.route}`)}>{item.title}</div>
+    <div
+      className={route === item.route ? 'link selected' : 'link'}
+      key={key}
+      onClick={() => history.push(`/checking/${id}/${item.route}`)}
+      role="menuItem"
+      tabIndex={key}
+    >
+      {item.title}
+
+    </div>
   );
 
   return (

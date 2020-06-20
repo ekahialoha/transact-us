@@ -22,5 +22,27 @@ h1 {
     color: $header-bg-color;
     display: inline-block;
     font-family: $emphsis-fonts;
+    margin: 0;
     padding: 0 12px 0 3px;
+}
+
+h2 {
+    border-bottom: 2px solid $h1-color;
+    color: $header-bg-color;
+    display: inline-block;
+    font-family: $emphsis-fonts;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0 12px 0 3px;
+}
+
+h4 {
+    font-size: .9em;
+    font-weight: normal;
+    margin: 0;
+    padding: 6px 8px;
+
+    span {
+      font-weight: bold;
+    }
 }
