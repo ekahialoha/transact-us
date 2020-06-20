@@ -19,9 +19,6 @@ const menu = [{
 }, {
   route: 'transactions',
   title: 'Transactions',
-}, {
-  route: 'reports',
-  title: 'Reports',
 }];
 
 
@@ -56,7 +53,6 @@ const ShowChecking = () => {
 
       </div>
       <Route exact path="/checking/:id/budget" component={Budget} />
-      <Route exact path="/checking/:id/reports" component={Reports} />
       <Route exact path="/checking/:id/transactions" component={Transactions} />
       <Route exact path="/checking/:id" component={Overview} />
     </>
