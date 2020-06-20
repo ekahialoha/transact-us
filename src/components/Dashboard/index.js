@@ -22,18 +22,27 @@ const Dashboard = (props) => {
           <div key={account.id}><Link to={account.url}>{account.name}</Link></div>
         ))} */}
         <fieldset className="account-list">
-          <legend>Your Registries</legend>
+          <legend>Savings</legend>
           <section>
-            <Link to="/registries/4">Our Checking</Link>
+            <Link to="/savings/4">Emergency</Link>
+          </section>
+          <section>
+            <Link to="/savings/4">New Car</Link>
+          </section>
+          <section>
+            <Link to="/savings/4">4th of July Getaway</Link>
           </section>
         </fieldset>
         <fieldset className="account-list">
-          <legend>Registries Shared with You</legend>
+          <legend>Checking</legend>
           <section>
-            <Link to="/registries/4">His Checking</Link>
+            <Link to="/checking/7">Checking 1</Link>
           </section>
           <section>
-            <Link to="/registries/4">Some Awesome Company</Link>
+            <Link to="/checking/7">Checking 2</Link>
+          </section>
+          <section>
+            <Link to="/checking/7">Checking 3</Link>
           </section>
         </fieldset>
       </main>

@@ -1,0 +1,93 @@
+.header {
+  // border: 1px solid green;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin-top: 1.5em;
+  padding: .2em;
+  .header-title {
+    font-family: "Fjalla One", cursive;
+    font-size: 1.2em;
+    font-weight: bold;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-end: 1;
+    text-align: center;
+  }
+
+  .cycle-back {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-end: 1;
+  }
+  .cycle-foward {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  div {
+    // border: 1px solid green;
+    // grid-row-end: 2;
+    padding: .5em;
+    text-align: center;
+  }
+}
+.transactions-list {
+  padding: 0;
+
+  section {
+    display: grid;
+    font-size: .9em;
+    grid-template-areas:  "trans-date trans-amt"
+                          "heading-balance trans-balance"
+                          "heading-desc trans-desc";
+    grid-template-rows: 1.5em 1.5em 1fr;
+    grid-template-columns: 5.2em auto;
+    padding: 1em;
+
+    .trans-amt, .trans-balance, .trans-desc {
+      text-align: right;
+    }
+
+    .trans-date {
+      grid-area: trans-date;
+    }
+    
+    .trans-amt {
+      grid-area: trans-amt;
+    }
+
+    [data-negative] {
+      color: red;
+    }
+
+    [data-positive] {
+      color: green;
+    }
+
+    .trans-balance {
+      grid-area: trans-balance;
+    }
+
+    .heading-balance {
+      font-size: .8em;
+      font-weight: bold;
+      grid-area: heading-balance;
+    }
+
+    .trans-desc {
+      grid-area: trans-desc;
+    }
+
+    .heading-desc {
+      font-size: .8em;
+      font-weight: bold;
+      grid-area: heading-desc;
+    }
+
+  }
+
+  section:nth-of-type(even) {
+    background: #DCDCDC;
+  }
+}
